@@ -12,13 +12,7 @@ services:
     container_name: master
     volumes: 
       - ./data:/data_volume
-  worker-1:
+  worker:
     build:
       context: .
       dockerfile: ./worker/Dockerfile
-    container_name: worker-1
-  worker-2:
-    build:
-      context: .
-      dockerfile: ./worker/Dockerfile
-    container_name: worker-2
