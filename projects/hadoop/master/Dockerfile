@@ -14,14 +14,6 @@ COPY ./master/entrypoint.sh /usr/local/bin/
 RUN chown -R bigdata:bigdata /usr/local/bin/entrypoint.sh 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# FOR DEBUG
-COPY ./data data
-COPY ./app app
-RUN chown -R bigdata:bigdata app/ && chown -R bigdata:bigdata data/
-
-# RUN mkdir scripts && echo "sudo chown -R bigdata:bigdata /home/bigdata/data" >> scripts/chown_data_dir.sh && sudo chmod +x scripts/chown_data_dir.sh
-# RUN echo "bigdata ALL=NOPASSWD:/home/bigdata/scripts/chown_data_dir.sh" >> /etc/sudoers
-
 USER bigdata
 
 # Only for Namenode

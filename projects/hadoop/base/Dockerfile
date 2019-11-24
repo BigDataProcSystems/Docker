@@ -22,13 +22,13 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #
 # ======================
 
-# user home directory
+# User home directory
 ENV BASE_USER_DIR /home/bigdata
 
-# create user
+# Create user
 RUN useradd -m -d $BASE_USER_DIR -s /bin/bash -p "$(openssl passwd -1 54321)" bigdata 
 
-# set current dir
+# Set current dir
 WORKDIR /home/bigdata
 
 
@@ -41,21 +41,21 @@ WORKDIR /home/bigdata
 # TODO: try it out instead of wget
 #ADD http://example.com/big.tar.xz /usr/src/things/
 
-# install hadoop
+# Install hadoop
 RUN mkdir hadoop \
     && wget -P /home/bigdata/sources https://archive.apache.org/dist/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz \
     && tar -xvf sources/hadoop-3.1.2.tar.gz --directory hadoop --strip-components 1 \
     && rm sources/hadoop-3.1.2.tar.gz
 
-# Hadoop configuration
+# Set Hadoop environment variables
 ENV HADOOP_HOME $BASE_USER_DIR/hadoop
 ENV HADOOP_CONF_DIR $HADOOP_HOME/etc/hadoop
 ENV PATH $HADOOP_HOME/bin:$HADOOP_HOME:$PATH
 
-# copy hadoop configuration files
-COPY ["config", "$HADOOP_CONF_DIR/"]
+# Copy hadoop configuration files
+COPY ["config/hdfs", "config/yarn", "config/mapreduce", "$HADOOP_CONF_DIR/"]
 
-# change owner to the bigdata user
+# Change owner of the Hadoop directory to the bigdata user
 RUN chown -R bigdata:bigdata $HADOOP_HOME 
 
 # Add sudo permission for hadoop user to start ssh service

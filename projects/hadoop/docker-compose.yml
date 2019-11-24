@@ -11,7 +11,8 @@ services:
       - "19888:19888"
     container_name: master
     volumes: 
-      - ./data:/data_volume
+      - ./app:/home/bigdata/app
+      - ./data:/home/bigdata/data
   worker:
     build:
       context: .
