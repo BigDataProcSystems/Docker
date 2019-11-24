@@ -9,11 +9,13 @@ services:
       - "9870:9870"
       - "8088:8088"
       - "19888:19888"
+      - "9999:9999"
     container_name: master
     volumes: 
-      - ./app:/home/bigdata/app
       - ./data:/home/bigdata/data
+      - ./app:/home/bigdata/app
   worker:
     build:
       context: .
       dockerfile: ./worker/Dockerfile
+    

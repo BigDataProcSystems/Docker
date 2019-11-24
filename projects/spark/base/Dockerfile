@@ -9,9 +9,9 @@ LABEL maintainer="Sergei Papulin <papulin_bmstu@mail.ru>"
 #
 # ======================
 
-RUN apt-get update && apt-get install -y openssh-server software-properties-common nano \
-    && sudo add-apt-repository ppa:openjdk-r/ppa \
-    && sudo apt update && sudo apt -y install openjdk-8-jdk
+RUN apt update && apt install -y openssh-server software-properties-common nano \
+    && add-apt-repository ppa:openjdk-r/ppa \
+    && apt update && apt -y install openjdk-8-jdk
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -83,8 +83,20 @@ COPY ["config/spark", "$SPARK_CONF_DIR/"]
 RUN chown -R bigdata:bigdata $SPARK_HOME 
 
 
+# ======================
+#
+# Install pip3 for Python
+#
+# ======================
+
+RUN apt update && apt -y install python3-pip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip install --upgrade pip
+
 # Add sudo permission for the bigdata user to start ssh service
 RUN echo "bigdata ALL=NOPASSWD:/usr/sbin/service ssh start" >> /etc/sudoers
+
 
 # COPY entrypoint.sh /usr/local/bin/
 # RUN chown -R bigdata:bigdata /usr/local/bin/entrypoint.sh 

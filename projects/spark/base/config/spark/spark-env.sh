@@ -42,8 +42,8 @@
 
 export SPARK_MASTER_HOST=localhost
 export SPARK_EXECUTOR_MEMORY=1G # will be overriden by spark-defaults.conf
-export PYSPARK_DRIVER_PYTHON=/opt/anaconda3/bin/python
-export PYSPARK_PYTHON=/opt/anaconda3/bin/python
+export PYSPARK_DRIVER_PYTHON=/usr/bin/python3 
+export PYSPARK_PYTHON=/usr/bin/python3 
 
 # Options for the daemons used in the standalone deploy mode
 # - SPARK_MASTER_HOST, to bind the master to a different IP address or hostname

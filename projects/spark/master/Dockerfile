@@ -4,29 +4,37 @@ LABEL maintainer="Sergei Papulin <papulin_bmstu@mail.ru>"
 
 #RUN ssh-keyscan -H 192.168.1.162 >> ~/.ssh/known_hosts
 
+# Change the current user to root
 USER root
 
-# only for master
+# Copy a master private key (only for the master)
 COPY ./base/keys/id_rsa .ssh/
 RUN chown -R bigdata:bigdata .ssh && chmod 400 .ssh/id_rsa
 
+# Copy an entrypoint script for the master node
 COPY ./master/entrypoint.sh /usr/local/bin/
-RUN chown -R bigdata:bigdata /usr/local/bin/entrypoint.sh 
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chown -R bigdata:bigdata /usr/local/bin/entrypoint.sh \
+    && chmod +x /usr/local/bin/entrypoint.sh
 
-# FOR DEBUG
-# COPY ./data data
-# COPY ./app app
-# RUN chown -R bigdata:bigdata app/ && chown -R bigdata:bigdata data/
+# Install the Jupyter Notebook Server
+RUN python3 -m pip install jupyter
 
-# RUN mkdir scripts && echo "sudo chown -R bigdata:bigdata /home/bigdata/data" >> scripts/chown_data_dir.sh && sudo chmod +x scripts/chown_data_dir.sh
-# RUN echo "bigdata ALL=NOPASSWD:/home/bigdata/scripts/chown_data_dir.sh" >> /etc/sudoers
+# Copy a Jupyter configuration file
+COPY ./base/config/jupyter/jupyter_notebook_config.py .jupyter/
+RUN chown -R bigdata:bigdata .jupyter && chmod -R 500 .jupyter
 
-RUN mkdir tmp/spark-events && chown -R bigdata:bigdata tmp/spark-events
+# Copy a kernel specification to enable PySpark functionality in Jupyter notebooks
+COPY ./base/config/jupyter/pyspark-kernel.json .local/share/jupyter/kernels/pyspark/kernel.json
+RUN chown -R bigdata:bigdata .local
 
+# Change the current user to bigdata
 USER bigdata
 
-# Only for Namenode
+# Create a directory for Spark logs and Jupyter notebooks
+RUN mkdir -p tmp/spark-events && mkdir notebooks
+
+# Format HDFS (only for Namenode)
 RUN hdfs namenode -format -force
 
+# Run an entrypoint script on startup
 ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]
