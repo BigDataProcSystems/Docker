@@ -154,7 +154,8 @@ http://127.0.0.1:42625/api/v1/namespaces/kubernetes-dashboard/services/http:kube
 ```
 
 ![Kubernetes Web UI](img/minikube/spark_k8s_submit_1.png "Kubernetes Web UI")
-<center><i>Figure 1. Kubernetes Web UI</i></center>
+<center><i>Figure 1. Kubernetes Web UI</i></center><br>
+
 
 ## Running Spark Application on Kubernetes
 
@@ -283,7 +284,7 @@ java.net.ProtocolException: Expected HTTP 101 response but was '403 Forbidden'
 You can track a status of your application in the Kubernetes web UI.
 
 ![Application Details](img/minikube/spark_k8s_submit_2.png "Application Details")
-<center><i>Figure 2. Application Details</i></center>
+<center><i>Figure 2. Application Details</i></center><br>
 
 *Client mode*
 
