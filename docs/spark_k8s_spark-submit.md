@@ -179,7 +179,7 @@ If you have an older Java version, run the following commands to setup the Java 
 
 #### Run application
 
-- *Cluster mode*
+*Cluster mode*
 
 Run the command below to start the Spark Pi application:
 
@@ -285,12 +285,12 @@ You can track a status of your application in the Kubernetes web UI.
 ![Application Details](img/minikube/spark_k8s_submit_2.png "Application Details")
 <center><i>Figure 2. Application Details</i></center>
 
-- *Client mode*
+*Client mode*
 
 It's possible to run a Spark application in the `client` mode. In this case you should provide a jar file of your application located on the host (in contrast to the `cluster` mode where jar files should be in containers with the `local://` prefix). 
 
 ```
-sudo /home/bigdata/spark/bin/spark-submit \
+sudo $SPARK_HOME/bin/spark-submit \
     --master k8s://https://localhost:8443 \
     --deploy-mode client \
     --name spark-pi \
@@ -299,7 +299,7 @@ sudo /home/bigdata/spark/bin/spark-submit \
     --conf spark.kubernetes.container.image=spark \
     --conf spark.kubernetes.namespace=spark \
     --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark-serviceaccount \
-    file:///home/bigdata/spark/examples/jars/spark-examples_2.11-2.4.4.jar
+    file:///$SPARK_HOME/examples/jars/spark-examples_2.11-2.4.4.jar
 ```
 
 `sudo kubectl get pods -n spark -o wide`
@@ -343,9 +343,9 @@ This is the known issue that is described [here](https://andygrove.io/2019/08/ap
 
 Replace the following files by the later version 4.4.2:
 
-- $SPARK_HOME/jars/kubernetes-client-4.1.2.jar
-- $SPARK_HOME/jars/kubernetes-model-4.1.2.jar
-- $SPARK_HOME/jars/kubernetes-model-common-4.1.2.jar
+- `$SPARK_HOME/jars/kubernetes-client-4.1.2.jar`
+- `$SPARK_HOME/jars/kubernetes-model-4.1.2.jar`
+- `$SPARK_HOME/jars/kubernetes-model-common-4.1.2.jar`
 
 Here is the bash script to do that:
 
