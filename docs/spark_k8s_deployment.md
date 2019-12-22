@@ -442,8 +442,10 @@ spark-worker-deployment-5dfd4b788d-qc4f2   1/1     Running   0          10s   17
 
 Open your browser and go to `10.96.66.194:9999` (see your service IP) to see the Master Web UI:
 
-![Spark Master Web UI](img/minikube/spark_k8s_dep_1.png "Spark Master Web UI")
-<center><i>Figure 1. Spark Master Web UI</i></center>
+<center>
+<img src="img/minikube/spark_k8s_dep_1.png" width="80%"><br>
+<i>Figure 1. Spark Master Web UI</i>
+</center>
 
 ## Running Pi Test
 
@@ -467,11 +469,16 @@ INFO StandaloneSchedulerBackend: Shutting down all executors
 ...
 ```
 
-![Running Application](img/minikube/spark_k8s_dep_2.png "Running Application")
-<center><i>Figure 2. Running Application</i></center>
+<center>
+<img src="img/minikube/spark_k8s_dep_2.png" width="80%"><br>
+<i>Figure 2. Running Application</i>
+</center>
+<br>
+<center>
+<img src="img/minikube/spark_k8s_dep_3.png" width="80%"><br>
+<i>Figure 3. Application Details</i>
+</center>
 
-![Pi Application Details](img/minikube/spark_k8s_dep_3.png "Application Details")
-<center><i>Figure 3. Application Details</i></center>
 
 ## Cleaning Up
 
@@ -517,9 +524,7 @@ Delete the cluster:
 ## References
 
 - [Kubernetes: Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-
 - [Kubernetes: Service](https://kubernetes.io/docs/concepts/services-networking/service/)
-
 - [Deploying Spark on Kubernetes](https://github.com/testdrivenio/spark-kubernetes)
 
 
