@@ -1,4 +1,4 @@
-# Spark on Kubernetes using Deployments
+# Spark Standalone Cluster on Kubernetes using Deployments
 
 Sergei Yu. Papulin (papulin.study@yandex.ru)
 
@@ -51,9 +51,7 @@ apiserver: Running
 kubeconfig: Configured
 ```
 
-`sudo minikube status`
-
-You can do this later when you build a Spark image and create other files.
+You can run a cluster later when you build a Spark image and create other files.
 
 ## Building Spark Image
 
@@ -191,7 +189,7 @@ spark-py                                  latest              6343567afd81      
 spark                                     latest              e5d13f574244        16 minutes ago      375MB
 ```
 
-You can run the bash interpreter in the custom image and check that all scripts copied successfully:
+You can run a bash interpreter in the custom image and check that all scripts copied successfully:
 
 `docker run --name custom-spark-test -it custom-spark:v2.4.4 /bin/bash`
 
@@ -442,10 +440,8 @@ spark-worker-deployment-5dfd4b788d-qc4f2   1/1     Running   0          10s   17
 
 Open your browser and go to `10.96.66.194:9999` (see your service IP) to see the Master Web UI:
 
-<center>
-<img src="img/minikube/spark_k8s_dep_1.png" width="80%"><br>
-<i>Figure 1. Spark Master Web UI</i>
-</center>
+![Spark Master Web UI](img/minikube/spark_k8s_dep_1.png "Spark Master Web UI")
+<center><i>Figure 1. Spark Master Web UI</i></center>
 
 ## Running Pi Test
 
@@ -469,16 +465,11 @@ INFO StandaloneSchedulerBackend: Shutting down all executors
 ...
 ```
 
-<center>
-<img src="img/minikube/spark_k8s_dep_2.png" width="80%"><br>
-<i>Figure 2. Running Application</i>
-</center>
-<br>
-<center>
-<img src="img/minikube/spark_k8s_dep_3.png" width="80%"><br>
-<i>Figure 3. Application Details</i>
-</center>
+![Running Application](img/minikube/spark_k8s_dep_2.png "Running Application")
+<center><i>Figure 2. Running Application</i></center>
 
+![Application Details](img/minikube/spark_k8s_dep_3.png "Application Details")
+<center><i>Figure 3. Application Details</i></center>
 
 ## Cleaning Up
 
