@@ -4,13 +4,16 @@ Sergei Yu. Papulin (papulin.study@yandex.ru)
 
 ## Contents
 
-- Installing Docker
-- Creating Base Hadoop Image
 - Building Hadoop Master and Worker Images
   - Master Image
   - Worker Image
 - Cleaning Up
 - References
+
+## Previous steps
+
+- [Part 1: Introduction](hadoop_docker_part_1.md)
+- [Part 2: Building Base Hadoop Image](hadoop_docker_part_2.md)
 
 ## Building Hadoop Master and Worker Images
 
