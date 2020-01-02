@@ -22,7 +22,7 @@ Sergei Yu. Papulin (papulin.study@yandex.ru)
 
 ![ Hadoop Cluster](img/docker/hd_compose_1.png "Hadoop Cluster")
 
-<i>Figure 1. Hadoop Cluster on Docker</i>
+<i>Figure 1. Hadoop cluster on single host</i>
 </center>
 
 
