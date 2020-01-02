@@ -15,21 +15,21 @@ Sergei Yu. Papulin (papulin.study@yandex.ru)
 
 <center>
 
-![ Namenode Web UI](img/docker/hd_swarm_3.png "Namenode Web UI")
+![ Hadoop Cluster Architecture](img/docker/hd_swarm_3.png "Hadoop Cluster Architecture")
 
 <i>Figure 1. Hadoop Cluster Architecture</i>
 </center>
 
 <center>
 
-<center>
-
-![ Namenode Web UI](img/docker/hd_cluster_images.png "Namenode Web UI")
+![ Hadoop Images](img/docker/hd_cluster_images.png "Hadoop Images")
 
 <i>Figure 2. Hadoop Images</i>
 </center>
 
-![ Namenode Web UI](img/docker/hd_cluster_containers.png "Namenode Web UI")
+<center>
+
+![ Hadoop Containers](img/docker/hd_cluster_containers.png "Hadoop Containers")
 
 <i>Figure 3. Hadoop Containers</i>
 </center>
