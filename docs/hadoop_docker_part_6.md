@@ -1,4 +1,4 @@
-# Hadoop on Docker. Part 6: Swarm using Stack Compose
+# Hadoop on Docker. Part 6: Stack Compose for Swarm
 
 Sergei Yu. Papulin (papulin.study@yandex.ru)
 
