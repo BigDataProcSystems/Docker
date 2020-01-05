@@ -80,7 +80,7 @@ networks:
 
 ## Deploying Hadoop using docker-compose
 
-Before start the cluster, all related images should be push to the registry.
+Before start the cluster, all related images should be pushed to the registry.
 
 ### Running cluster
 
@@ -108,7 +108,7 @@ tq4c36o1sne7        hadoop_worker.og36lgyz7xi58yivz17sy92gk   192.168.5.5:5000/h
 vofpyddl1ncs        hadoop_worker.dfsyvavxzazo83acguqzhbhuk   192.168.5.5:5000/hadoop-worker-image:latest   vhost-1             Running             Running about a minute ago 
 ```
 
-Show all container on the manager node:
+Show all containers on the manager node:
 
 `docker ps`
 
@@ -119,7 +119,7 @@ a212c1fca052        192.168.5.5:5000/hadoop-worker-image:latest   "sh /usr/local
 4c4dac25960a        registry:2                                    "/entrypoint.sh /etc…"   22 minutes ago      Up 22 minutes       5000/tcp                                                                   registry.1.mlqg8m7plg5nvbbavzqascanq
 ```
 
-Show all container on the worker node:
+Show all containers on the worker node:
 
 `docker ps`
 
@@ -183,7 +183,7 @@ Copy local data to HDFS:
 
 `docker exec $(docker ps --filter name=master --format "{{.ID}}") bash hdfs dfs -copyFromLocal /data /`
 
-Check whether the data copied:
+Check whether the data were copied:
 
 `docker exec $(docker ps --filter name=master --format "{{.ID}}") bash hdfs dfs -ls /data`
 
