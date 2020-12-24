@@ -1,8 +1,9 @@
 .idea
+.vscode
 .ipynb_checkpoints
 *.class
 *.iml
 *.log
-debug.md
+*debug*
 **/keys/*
 !**/keys/readme.md
