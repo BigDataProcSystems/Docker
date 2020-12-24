@@ -28,7 +28,7 @@ We will build three Hadoop images on different base images:
 - OpenJDK 8 on Debian (`openjdk:8-jdk-slim` and `openjdk:8-jre-slim`)
 - OpenJDK 8 on Alpine (`openjdk:8-alpine` and `openjdk:8-jre-alpine`)
 
-The last implemetation on Alpine can be considered as the best one among them.
+The last implementation on Alpine can be considered as the best one among them.
 
 ### Built on Ubuntu
 
