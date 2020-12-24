@@ -210,7 +210,7 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 7634f6045524        custom-spark:v2.4.4   "/opt/entrypoint.sh …"   3 minutes ago       Exited (0) 2 minutes ago                       custom-spark-test
 ```
 
-Remove it by the conainer id:
+Remove it by the container id:
 
 `docker container rm 7634f6045524`
 
