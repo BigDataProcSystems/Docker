@@ -340,7 +340,7 @@ java.net.ProtocolException: Expected HTTP 101 response but was '403 Forbidden'
         at java.lang.Thread.run(Thread.java:748)
 ```
 
-This is the known issue that is described [here](https://andygrove.io/2019/08/apache-spark-regressions-eks/)
+This is the known issue that is described [here](https://andygrove.io/2019/08/apache-spark-regressions-eks/).
 
 Replace the following files by the later version 4.4.2:
 
@@ -351,7 +351,7 @@ Replace the following files by the later version 4.4.2:
 Here is the bash script to do that:
 
 ```bash
-# Back-up an old version of the kubernetes files
+# Back up the old version of the kubernetes files
 mkdir -p spark/jars_k8s_old && mv spark/jars/kuber* $_
 
 LIB_VERSION="4.4.2"
