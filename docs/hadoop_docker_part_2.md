@@ -59,9 +59,8 @@ LABEL maintainer="Sergei Papulin <papulin.study@yandex.ru>"
 
 RUN apt-get update && apt-get install -y openssh-server software-properties-common nano && \
     add-apt-repository ppa:openjdk-r/ppa && \
-    apt update && apt -y install openjdk-8-jdk
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt update && apt -y install openjdk-8-jdk && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 # ======================
